@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #252820;
+  --color-ink-soft: #4c5147;
+  --color-paper: #fbfaf6;
+  --color-paper-dark: #efeee6;
+  --color-line: #d8d9cf;
+  --font-sans: "Instrument Sans", "IBM Plex Sans Arabic", sans-serif;
+  --accent-glass-gradient: linear-gradient(125deg, rgb(217 113 77 / 88%) 0%, rgb(233 170 120 / 82%) 48%, rgb(216 233 157 / 88%) 100%);
+  --accent-glass-soft: linear-gradient(125deg, rgb(217 113 77 / 17%), rgb(233 170 120 / 22%) 48%, rgb(216 233 157 / 35%));
+}
+
+:root {
+  color-scheme: light;
+  --page-gutter: clamp(0.75rem, 3.8vw, 3.5rem);
+  --frame-radius: clamp(1.25rem, 2.2vw, 2rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #8b432a;
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background:
+    radial-gradient(ellipse at 8% 8%, rgb(244 179 113 / 72%), transparent 34%),
+    radial-gradient(ellipse at 93% 28%, rgb(205 101 55 / 66%), transparent 36%),
+    radial-gradient(ellipse at 75% 88%, rgb(92 40 30 / 54%), transparent 42%),
+    linear-gradient(135deg, #783721 0%, #a65132 42%, #c8754d 72%, #793825 100%);
+  background-attachment: fixed;
+  font-family: "Instrument Sans", "IBM Plex Sans Arabic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body:lang(ar) {
+  font-family: "IBM Plex Sans Arabic", "Instrument Sans", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  color: var(--color-ink);
+  background: #e9b18a;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+.accent-glass {
+  border: 1px solid rgb(255 255 255 / 58%);
+  background: var(--accent-glass-gradient);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 58%), 0 0.5rem 1.4rem rgb(92 38 18 / 13%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  backdrop-filter: blur(16px) saturate(135%);
+}
+
+.text-accent-gradient {
+  color: #df9367;
+  background: var(--accent-glass-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.site-frame {
+  margin: 1.1rem var(--page-gutter) var(--page-gutter);
+  overflow: clip;
+  border: 1px solid rgb(255 255 255 / 68%);
+  border-radius: var(--frame-radius);
+  background: rgb(251 250 246 / 90%);
+  box-shadow: 0 1.5rem 5rem rgb(60 26 17 / 20%), inset 0 1px 0 rgb(255 255 255 / 78%);
+  -webkit-backdrop-filter: blur(28px) saturate(135%);
+  backdrop-filter: blur(28px) saturate(135%);
+}
+
+.visual-art {
+  position: relative;
+  min-height: 34rem;
+  overflow: hidden;
+  border-radius: calc(var(--frame-radius) - 0.35rem);
+  background: #344b3d;
+  isolation: isolate;
+}
+
+.art-main-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.art-card {
+  position: absolute;
+  z-index: 1;
+  width: 43%;
+  border: 5px solid var(--color-paper);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2.5rem rgb(24 28 22 / 24%);
+  object-fit: cover;
+}
+
+.art-video-image {
+  inset-block-start: 14%;
+  inset-inline-end: 4%;
+  aspect-ratio: 1.38;
+}
+
+.art-writing-image {
+  inset-block-end: 24%;
+  inset-inline-start: 4%;
+  aspect-ratio: 1.38;
+}
+
+.art-caption {
+  position: absolute;
+  z-index: 2;
+  inset-inline-start: 1.25rem;
+  inset-block-start: 1.25rem;
+  max-width: 11rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 0.4rem;
+  color: white;
+  background: rgb(37 40 32 / 40%);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  backdrop-filter: blur(5px);
+}
+
+.art-note {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 1rem;
+  inset-block-end: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.65rem;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.category-card {
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  background: var(--accent-glass-soft);
+}
+
+.faq-row[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-icon {
+  transition: transform 160ms ease;
+}
+
+@media (max-width: 700px) {
+  .visual-art {
+    min-height: 25rem;
+  }
+
+  .art-card {
+    width: 43%;
+    border-width: 4px;
+    border-radius: 0.8rem;
+  }
+
+  .art-video-image {
+    inset-block-start: 12%;
+  }
+
+  .art-writing-image {
+    inset-block-end: 36%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
