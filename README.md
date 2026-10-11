@@ -4,6 +4,13 @@ Gigs is a local freelance marketplace platform tailored for Kuwait. It connects 
 
 The current project is a bilingual English and Arabic product preview. It includes a landing page, a sample freelancer directory and profiles, and a local project brief preview. The sample profiles and prices are illustrative; project briefs are not sent or saved.
 
+
+<img width="815" height="645" alt="image" src="https://github.com/user-attachments/assets/77954333-0669-404a-a515-20d4273dc991" />
+<img width="842" height="665" alt="image" src="https://github.com/user-attachments/assets/bcdd6253-93e7-474c-8a65-ac99f4ed0111" />
+<img width="767" height="732" alt="image" src="https://github.com/user-attachments/assets/465cefdb-654b-4f94-be54-7ca72db50689" />
+<img width="587" height="517" alt="image" src="https://github.com/user-attachments/assets/feba4a44-90d6-4388-9ee2-455bf5f9d2b9" />
+
+
 ## Tech stack
 
 - **Next.js 16** with the App Router
